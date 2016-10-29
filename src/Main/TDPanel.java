@@ -746,15 +746,7 @@ public class TDPanel extends GamePanel implements MouseMotionListener {
 
 	private void drawCursor(Graphics2D g2d) {
 		// Tower Cursor
-		if (mouseLoc != null && USE_DEBEG_CURSOR)
-		{
-			int mlx = mouseLoc.x;
-			int mly = mouseLoc.y;
-			g2d.drawString(""+mlx + " , " + mly, mlx, mly);	
-			g2d.drawRect(mlx,mly,10,10);
-		}
-
-		else if (mouseLoc != null && buyMode && select < towerPics.size()) {
+		if (mouseLoc != null && buyMode && select < towerPics.size()) {
 			int rng = towerTypes.get(select).getRng();
 			int mlx = mouseLoc.x;
 			int mly = mouseLoc.y;
@@ -783,6 +775,15 @@ public class TDPanel extends GamePanel implements MouseMotionListener {
 			g2d.drawImage(next, null, mouseLoc.x - next.getWidth() / 2,
 					mouseLoc.y - next.getHeight() / 2);
 		}
+		
+		if (mouseLoc != null && USE_DEBEG_CURSOR)
+		{
+			int mlx = mouseLoc.x;
+			int mly = mouseLoc.y;
+			g2d.drawString(""+mlx + " , " + mly, mlx, mly);	
+			g2d.drawRect(mlx,mly,10,10);
+		}
+
 		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
 	}
 
