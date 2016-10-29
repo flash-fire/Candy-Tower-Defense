@@ -781,7 +781,7 @@ public class TDPanel extends GamePanel implements MouseMotionListener {
 			int mlx = mouseLoc.x;
 			int mly = mouseLoc.y;
 			g2d.drawString(""+mlx + " , " + mly, mlx, mly);	
-			g2d.drawRect(mlx,mly,10,10);
+			g2d.drawRect(mlx-5,mly-5,10,10);
 		}
 
 		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
