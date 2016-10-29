@@ -30,6 +30,7 @@ import Mobs.*;
 
 public class TDPanel extends GamePanel implements MouseMotionListener {
 // I made a change
+	public static final boolean USE_DEBEG_CURSOR = true;
 	public static String mode = "EASY";
 	public static ButtonHandler buttons = new ButtonHandler();
 	public static ImageSFXs effects = new ImageSFXs();
@@ -745,11 +746,19 @@ public class TDPanel extends GamePanel implements MouseMotionListener {
 
 	private void drawCursor(Graphics2D g2d) {
 		// Tower Cursor
-		if (mouseLoc != null && buyMode && select < towerPics.size()) {
-			int rng = towerTypes.get(select).getRng();
-			g2d.setColor(Color.cyan);
+		if (mouseLoc != null && USE_DEBEG_CURSOR)
+		{
 			int mlx = mouseLoc.x;
 			int mly = mouseLoc.y;
+			g2d.drawString(""+mlx + " , " + mly, mlx, mly);	
+			g2d.drawRect(mlx,mly,10,10);
+		}
+
+		else if (mouseLoc != null && buyMode && select < towerPics.size()) {
+			int rng = towerTypes.get(select).getRng();
+			int mlx = mouseLoc.x;
+			int mly = mouseLoc.y;
+			g2d.setColor(Color.cyan);
 			if (towerTypes.get(select).getCost() * costMult > gold) {
 				BufferedImage[] seq = GifHandler.Mouse.sequence;
 				BufferedImage next = seq[(int) frame() % seq.length];
