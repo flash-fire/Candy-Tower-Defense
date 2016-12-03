@@ -21,7 +21,7 @@ public class ImageLoader {
 		}
 		catch (IOException e) {	
 			System.out.println("Image load failed");
-//			e.printStackTrace();
+			e.printStackTrace();
 			return null;
 		}
 	}
